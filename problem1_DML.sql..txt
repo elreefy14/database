@@ -1,0 +1,6 @@
+INSERT INTO DEPARTMENT (Dnumber,Dname,mgr_ssn, mgr_start_date) VALUES (12, "food","6ab","2021-11-8");
+
+INSERT INTO EMPLOYEE (ssn,fname, lname, bdate, address, gender,
+salary, Dno) VALUES ("6ab","ahmed","elreefy","2021-11-18","greentowers","F",45.01,12);
+
+INSERT INTO PROJECT (Pnumber, Pname, Plocation, Dno) VALUES (123, "esraa","address",13);

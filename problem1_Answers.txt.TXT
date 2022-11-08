@@ -1,0 +1,22 @@
+Question1:
+USE COMPANY;
+INSERT INTO DEPARTMENT (Dnumber,Dname,mgr_ssn, mgr_start_date) VALUES (12, "food","6ab","2021-11-8");
+
+INSERT INTO EMPLOYEE (ssn,fname, lname, bdate, address, gender,
+salary, Dno) VALUES ("6ab","ahmed","elreefy","2021-11-18","greentowers","F",45.01,12);
+SQL query:
+DELETE FROM EMPLOYEE WHERE ssn="6ab";
+MySQL said: Documentation
+Cannot delete or update a parent row: a foreign key constraint fails (`company`.`DEPARTMENT`, CONSTRAINT `department_ibfk_1` FOREIGN KEY (`mgr_ssn`) REFERENCES `EMPLOYEE` (`ssn`))
+ 
+Question2:
+INSERT INTO PROJECT (Pnumber, Pname, Plocation, Dno) VALUES (123, "ahmed","address",13);
+MySQL said: Documentation
+Cannot add or update a child row: a foreign key constraint fails (`company`.`PROJECT`, CONSTRAINT `project_ibfk_1` FOREIGN KEY (`Dno`) REFERENCES `DEPARTMENT` (`Dnumber`))
+
+
+Question3:
+//The NOT NULL constraint enforces a column to not accept NULL values, which means that you cannot insert or update a record without adding a value to this field.
+MySQL said: Documentation
+Cannot add or update a child row: a foreign key constraint fails (`company`.`DEPARTMENT`, CONSTRAINT `department_ibfk_1` FOREIGN KEY (`mgr_ssn`) REFERENCES `EMPLOYEE` (`ssn`))
+I will insert the first row in EMPLOYEE and DEPARTMENT before announcing the foreign key.

@@ -1,0 +1,43 @@
+SQL queries:
+
+Question1:
+
+SELECT name
+FROM member
+WHERE join_date>('2000-9-1');
+
+Question2:
+SELECT *
+FROM member
+WHERE join_date>('1995-10-1') AND join_date<('2019-10-1');
+
+Question3:
+SELECT *
+FROM book
+WHERE pub_id IN
+    ( SELECT pub_id
+        FROM publisher
+        WHERE name = 'Oxford') UNION 
+SELECT * FROM book WHERE (price> 15 AND price< 20 );
+
+Question4:
+SELECT title FROM book 
+WHERE book_id IN
+    ( SELECT book_id
+        FROM borrowing_book
+        WHERE member_id IN
+            ( SELECT member_id
+                FROM member
+                WHERE name = 'Kayli Dietrich'));
+
+
+Question5:
+
+SELECT name FROM member 
+WHERE member_id IN
+    ( SELECT member_id
+        FROM borrowing_book
+        WHERE borrow_date > '2019-01-01' AND borrow_date < '2019-12-31' );
+
+
+

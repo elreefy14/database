@@ -1,0 +1,19 @@
+CREATE DATABASE COMPANY;
+USE COMPANY;
+CREATE TABLE
+EMPLOYEE(ssn CHAR(9),fname VARCHAR(20), lname VARCHAR(15), bdate DATE, address VARCHAR(30), gender CHAR, salary DECIMAL(10,2), Dno INT,  PRIMARY KEY (ssn));
+
+CREATE TABLE 
+DEPARTMENT (Dnumber INT, Dname VARCHAR(15), mgr_ssn CHAR(9), mgr_start_date DATE,PRIMARY KEY (Dnumber),FOREIGN KEY (mgr_ssn) REFERENCES EMPLOYEE (ssn));
+
+CREATE TABLE 
+PROJECT (Pnumber INT, Pname VARCHAR(15), Plocation VARCHAR(15) , Dno INT,PRIMARY KEY (Pnumber),FOREIGN KEY (Dno) REFERENCES DEPARTMENT(Dnumber));
+
+ALTER TABLE EMPLOYEE ADD FOREIGN KEY (Dno)
+REFERENCES DEPARTMENT(Dnumber); 
+
+USE COMPANY;
+INSERT INTO DEPARTMENT (Dnumber,Dname,mgr_ssn, mgr_start_date) VALUES (12, "food","6ab","2021-11-8");
+
+INSERT INTO EMPLOYEE (ssn,fname, lname, bdate, address, gender,
+salary, Dno) VALUES ("6ab","ahmed","elreefy","2021-11-18","greentowers","F",45.01,12);
